@@ -1,0 +1,640 @@
+<!doctype html>
+<html lang="vi" class="h-full">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trần Đình Khánh Dư - Portfolio</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap"
+    rel="stylesheet">
+  <style>
+    * {
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    .mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-20px);
+      }
+    }
+
+    @keyframes glow {
+
+      0%,
+      100% {
+        opacity: 0.4;
+      }
+
+      50% {
+        opacity: 0.8;
+      }
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes typewriter {
+      from {
+        width: 0;
+      }
+
+      to {
+        width: 100%;
+      }
+    }
+
+    .animate-float {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .animate-glow {
+      animation: glow 3s ease-in-out infinite;
+    }
+
+    .animate-slide-up {
+      animation: slideUp 0.8s ease-out forwards;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #00f5d4 0%, #00bbf9 50%, #9b5de5 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .card-hover {
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .card-hover:hover {
+      transform: translateY(-8px) scale(1.02);
+    }
+
+    .skill-tag {
+      transition: all 0.3s ease;
+    }
+
+    .skill-tag:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 20px rgba(0, 245, 212, 0.5);
+    }
+
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      z-index: 0;
+    }
+
+    .glass {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    html,
+    body {
+      height: 100%;
+    }
+  </style>
+  <style>
+    body {
+      box-sizing: border-box;
+    }
+  </style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+</head>
+
+<body class="h-full bg-[#0a0a0f] text-white overflow-x-hidden">
+  <div id="app-wrapper" class="min-h-full w-full relative overflow-auto">
+    <!-- Animated Background -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none">
+      <div class="blob w-96 h-96 bg-[#00f5d4] opacity-20 top-0 left-0 animate-float" style="animation-delay: 0s;"></div>
+      <div class="blob w-80 h-80 bg-[#9b5de5] opacity-15 top-1/2 right-0 animate-float" style="animation-delay: 2s;">
+      </div>
+      <div class="blob w-72 h-72 bg-[#00bbf9] opacity-15 bottom-0 left-1/3 animate-float" style="animation-delay: 4s;">
+      </div>
+    </div><!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 glass">
+      <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+        <div class="mono text-lg font-medium">
+          <span class="text-[#00f5d4]">&lt;</span>KD<span class="text-[#00f5d4]">/&gt;</span>
+        </div>
+        <div class="hidden md:flex gap-8">
+          <a href="#about" class="text-gray-400 hover:text-[#00f5d4] transition-colors">About</a> <a href="#skills"
+            class="text-gray-400 hover:text-[#00f5d4] transition-colors">Skills</a> <a href="#projects"
+            class="text-gray-400 hover:text-[#00f5d4] transition-colors">Projects</a> <a href="#contact"
+            class="text-gray-400 hover:text-[#00f5d4] transition-colors">Contact</a>
+        </div><a href="https://github.com/dww155" target="_blank" rel="noopener noreferrer"
+          class="flex items-center gap-2 px-4 py-2 rounded-full border border-[#00f5d4]/30 hover:bg-[#00f5d4]/10 transition-all">
+          <i data-lucide="github" class="w-4 h-4"></i> <span class="text-sm">GitHub</span> </a>
+      </div>
+    </nav><!-- Hero Section -->
+    <section class="min-h-screen flex items-center justify-center relative px-6 pt-20">
+      <div class="max-w-4xl mx-auto text-center relative z-10">
+        <div class="animate-slide-up" style="animation-delay: 0.1s;">
+          <p class="mono text-[#00f5d4] text-sm mb-4 tracking-widest">HELLO WORLD, I'M</p>
+        </div>
+        <h1 id="hero-name" class="text-5xl md:text-7xl font-bold mb-6 gradient-text animate-slide-up"
+          style="animation-delay: 0.2s;">Trần Đình Khánh Dư</h1>
+        <h2 id="hero-title" class="text-2xl md:text-3xl text-gray-400 mb-8 animate-slide-up"
+          style="animation-delay: 0.3s;">Web Developer</h2>
+        <p id="hero-bio" class="text-lg text-gray-500 max-w-2xl mx-auto mb-12 leading-relaxed animate-slide-up"
+          style="animation-delay: 0.4s;">Passionate full-stack developer with expertise in building modern web
+          applications. I transform ideas into elegant, scalable solutions using cutting-edge technologies.</p>
+        <div class="flex flex-wrap justify-center gap-4 animate-slide-up" style="animation-delay: 0.5s;">
+          <a href="#projects"
+            class="px-8 py-4 bg-gradient-to-r from-[#00f5d4] to-[#00bbf9] text-black font-semibold rounded-full hover:shadow-lg hover:shadow-[#00f5d4]/30 transition-all">
+            View My Work </a> <a href="#contact"
+            class="px-8 py-4 border border-white/20 rounded-full hover:bg-white/5 transition-all"> Get In Touch </a>
+        </div><!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+          <i data-lucide="chevron-down" class="w-6 h-6 text-gray-500"></i>
+        </div>
+      </div>
+    </section><!-- Skills Section -->
+    <section id="skills" class="py-32 px-6 relative">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-16">
+          <p class="mono text-[#00f5d4] text-sm mb-4 tracking-widest">WHAT I DO</p>
+          <h2 class="text-4xl md:text-5xl font-bold">Skills &amp; Technologies</h2>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <!-- Frontend -->
+          <div class="glass rounded-2xl p-6 card-hover">
+            <div
+              class="w-12 h-12 rounded-xl bg-gradient-to-br from-[#00f5d4]/20 to-[#00bbf9]/20 flex items-center justify-center mb-4">
+              <i data-lucide="layout" class="w-6 h-6 text-[#00f5d4]"></i>
+            </div>
+            <h3 class="font-semibold mb-3">Frontend</h3>
+            <div class="flex flex-wrap gap-2">
+              <span class="skill-tag px-3 py-1 bg-[#61dafb]/10 text-[#61dafb] rounded-full text-xs mono">React</span>
+              <span
+                class="skill-tag px-3 py-1 bg-[#3178c6]/10 text-[#3178c6] rounded-full text-xs mono">TypeScript</span>
+            </div>
+          </div><!-- Backend -->
+          <div class="glass rounded-2xl p-6 card-hover">
+            <div
+              class="w-12 h-12 rounded-xl bg-gradient-to-br from-[#9b5de5]/20 to-[#f15bb5]/20 flex items-center justify-center mb-4">
+              <i data-lucide="server" class="w-6 h-6 text-[#9b5de5]"></i>
+            </div>
+            <h3 class="font-semibold mb-3">Backend</h3>
+            <div class="flex flex-wrap gap-2">
+              <span class="skill-tag px-3 py-1 bg-[#6db33f]/10 text-[#6db33f] rounded-full text-xs mono">Spring
+                Boot</span> <span
+                class="skill-tag px-3 py-1 bg-[#512bd4]/10 text-[#a78bfa] rounded-full text-xs mono">C#/.NET</span>
+              <span class="skill-tag px-3 py-1 bg-[#3776ab]/10 text-[#3776ab] rounded-full text-xs mono">Python</span>
+            </div>
+          </div><!-- Database -->
+          <div class="glass rounded-2xl p-6 card-hover">
+            <div
+              class="w-12 h-12 rounded-xl bg-gradient-to-br from-[#00bbf9]/20 to-[#00f5d4]/20 flex items-center justify-center mb-4">
+              <i data-lucide="database" class="w-6 h-6 text-[#00bbf9]"></i>
+            </div>
+            <h3 class="font-semibold mb-3">Database</h3>
+            <div class="flex flex-wrap gap-2">
+              <span class="skill-tag px-3 py-1 bg-[#4479a1]/10 text-[#4479a1] rounded-full text-xs mono">MySQL</span>
+              <span
+                class="skill-tag px-3 py-1 bg-[#336791]/10 text-[#336791] rounded-full text-xs mono">PostgreSQL</span>
+            </div>
+          </div><!-- Tools -->
+          <div class="glass rounded-2xl p-6 card-hover">
+            <div
+              class="w-12 h-12 rounded-xl bg-gradient-to-br from-[#f15bb5]/20 to-[#9b5de5]/20 flex items-center justify-center mb-4">
+              <i data-lucide="wrench" class="w-6 h-6 text-[#f15bb5]"></i>
+            </div>
+            <h3 class="font-semibold mb-3">Tools</h3>
+            <div class="flex flex-wrap gap-2">
+              <span class="skill-tag px-3 py-1 bg-[#f05032]/10 text-[#f05032] rounded-full text-xs mono">Git</span>
+              <span class="skill-tag px-3 py-1 bg-[#2496ed]/10 text-[#2496ed] rounded-full text-xs mono">Docker</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section><!-- Projects Section -->
+    <section id="projects" class="py-32 px-6 relative">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-16">
+          <p class="mono text-[#00f5d4] text-sm mb-4 tracking-widest">MY WORK</p>
+          <h2 class="text-4xl md:text-5xl font-bold">Featured Projects</h2>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Project 1: Pet Shop -->
+          <div class="glass rounded-3xl overflow-hidden card-hover group">
+            <div
+              class="h-48 bg-gradient-to-br from-[#00f5d4]/30 via-[#00bbf9]/20 to-[#9b5de5]/30 flex items-center justify-center relative overflow-hidden">
+              <div
+                class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.05%22%3E%3Cpath%20d%3D%22M36%2034v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6%2034v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6%204V0H4v4H0v2h4v4h2V6h4V4H6z%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E')] opacity-50">
+              </div>
+              <svg class="w-20 h-20 text-white/80 group-hover:scale-110 transition-transform" viewbox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="1.5">
+                <path
+                  d="M10 5.172C10 3.782 8.423 2.679 6.5 3c-2.823.47-4.113 6.006-4 7 .08.703 1.725 1.722 3.656 1 1.261-.472 1.96-1.45 2.344-2.5M14.267 5.172c0-1.39 1.577-2.493 3.5-2.172 2.823.47 4.113 6.006 4 7-.08.703-1.725 1.722-3.656 1-1.261-.472-1.855-1.45-2.239-2.5M8 14v.5M16 14v.5M11.25 16.25h1.5L12 17l-.75-.75z" />
+                <path
+                  d="M4.42 11.247A13.152 13.152 0 0 0 4 14.556C4 18.728 7.582 21 12 21s8-2.272 8-6.444a11.702 11.702 0 0 0-.493-3.309" />
+              </svg>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="w-2 h-2 rounded-full bg-[#00f5d4] animate-pulse"></span> <span
+                  class="text-xs text-gray-500 mono">E-Commerce</span>
+              </div>
+              <h3 class="text-xl font-bold mb-3">Pet Shop</h3>
+              <p class="text-gray-400 text-sm mb-4 leading-relaxed">A comprehensive e-commerce platform for pet lovers
+                with REST API backend. Features include product catalog, shopping cart, user authentication, and order
+                management with real-time data synchronization.</p>
+              <div class="flex flex-wrap gap-2 mb-6">
+                <span class="px-2 py-1 bg-white/5 rounded text-xs mono text-gray-400">Spring Boot</span> <span
+                  class="px-2 py-1 bg-white/5 rounded text-xs mono text-gray-400">React</span> <span
+                  class="px-2 py-1 bg-white/5 rounded text-xs mono text-gray-400">TypeScript</span> <span
+                  class="px-2 py-1 bg-white/5 rounded text-xs mono text-gray-400">PostgreSQL</span>
+              </div><a href="https://github.com/nhieelam/pet-shop" target="_blank" rel="noopener noreferrer"
+                class="flex items-center gap-2 text-[#00f5d4] hover:gap-3 transition-all"> <span
+                  class="text-sm font-medium">View Project</span> <i data-lucide="arrow-right" class="w-4 h-4"></i> </a>
+            </div>
+          </div><!-- Project 2: Vietnamese RAG System -->
+          <div class="glass rounded-3xl overflow-hidden card-hover group">
+            <div
+              class="h-48 bg-gradient-to-br from-[#9b5de5]/30 via-[#f15bb5]/20 to-[#00f5d4]/30 flex items-center justify-center relative overflow-hidden">
+              <div
+                class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.05%22%3E%3Cpath%20d%3D%22M36%2034v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6%2034v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6%204V0H4v4H0v2h4v4h2V6h4V4H6z%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E')] opacity-50">
+              </div>
+              <svg class="w-20 h-20 text-white/80 group-hover:scale-110 transition-transform" viewbox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M12 2a3 3 0 0 0-3 3v4a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z" />
+                <path d="M19 10v1a7 7 0 0 1-14 0v-1M12 19v3M8 22h8" />
+                <circle cx="12" cy="12" r="10" stroke-dasharray="2 4" />
+              </svg>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="w-2 h-2 rounded-full bg-[#9b5de5] animate-pulse"></span> <span
+                  class="text-xs text-gray-500 mono">AI / NLP</span>
+              </div>
+              <h3 class="text-xl font-bold mb-3">Vietnamese RAG System</h3>
+              <p class="text-gray-400 text-sm mb-4 leading-relaxed">An intelligent Retrieval-Augmented Generation system
+                optimized for Vietnamese language. Combines vector databases with LLMs for accurate question answering
+                and document retrieval.</p>
+              <div class="flex flex-wrap gap-2 mb-6">
+                <span class="px-2 py-1 bg-white/5 rounded text-xs mono text-gray-400">Python</span> <span
+                  class="px-2 py-1 bg-white/5 rounded text-xs mono text-gray-400">LangChain</span> <span
+                  class="px-2 py-1 bg-white/5 rounded text-xs mono text-gray-400">FastAPI</span> <span
+                  class="px-2 py-1 bg-white/5 rounded text-xs mono text-gray-400">ChromaDB</span>
+              </div><a href="https://github.com/nhieelam/vietnamese_rag_system" target="_blank"
+                rel="noopener noreferrer" class="flex items-center gap-2 text-[#9b5de5] hover:gap-3 transition-all">
+                <span class="text-sm font-medium">View Project</span> <i data-lucide="arrow-right" class="w-4 h-4"></i>
+              </a>
+            </div>
+          </div><!-- Project 3: Smart School Bus -->
+          <div class="glass rounded-3xl overflow-hidden card-hover group">
+            <div
+              class="h-48 bg-gradient-to-br from-[#00bbf9]/30 via-[#00f5d4]/20 to-[#9b5de5]/30 flex items-center justify-center relative overflow-hidden">
+              <div
+                class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.05%22%3E%3Cpath%20d%3D%22M36%2034v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6%2034v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6%204V0H4v4H0v2h4v4h2V6h4V4H6z%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E')] opacity-50">
+              </div>
+              <svg class="w-20 h-20 text-white/80 group-hover:scale-110 transition-transform" viewbox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="1.5">
+                <path
+                  d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16.5 10 16 10s-2.7.6-4.5 1.1c-.8.2-1.5 1-1.5 1.9v3c0 .6.4 1 1 1h2m0 0v3m0-3v-3m0 3c0 .6-.4 1-1 1H9c-.6 0-1-.4-1-1m10 0c0 .6.4 1 1 1h1c.6 0 1-.4 1-1M8 14v3c0 .6-.4 1-1 1H6c-.6 0-1-.4-1-1v-3c0-.9.7-1.7 1.5-1.9C7.3 10.6 9.5 10 10 10" />
+              </svg>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="w-2 h-2 rounded-full bg-[#00bbf9] animate-pulse"></span> <span
+                  class="text-xs text-gray-500 mono">IoT / Tracking</span>
+              </div>
+              <h3 class="text-xl font-bold mb-3">Smart School Bus</h3>
+              <p class="text-gray-400 text-sm mb-4 leading-relaxed">Real-time school bus tracking and management system
+                with live location updates. Enables parents to monitor routes and administrators to manage fleet
+                efficiently with REST APIs.</p>
+              <div class="flex flex-wrap gap-2 mb-6">
+                <span class="px-2 py-1 bg-white/5 rounded text-xs mono text-gray-400">Spring Boot</span> <span
+                  class="px-2 py-1 bg-white/5 rounded text-xs mono text-gray-400">React</span> <span
+                  class="px-2 py-1 bg-white/5 rounded text-xs mono text-gray-400">TypeScript</span> <span
+                  class="px-2 py-1 bg-white/5 rounded text-xs mono text-gray-400">MySQL</span>
+              </div><a href="https://github.com/ducnhan123-co/DO_AN_CNPM_2025_SGU.git" target="_blank"
+                rel="noopener noreferrer" class="flex items-center gap-2 text-[#00bbf9] hover:gap-3 transition-all">
+                <span class="text-sm font-medium">View Project</span> <i data-lucide="arrow-right" class="w-4 h-4"></i>
+              </a>
+            </div>
+          </div><!-- Project 4: Minimarket Desktop App -->
+          <div class="glass rounded-3xl overflow-hidden card-hover group">
+            <div
+              class="h-48 bg-gradient-to-br from-[#f15bb5]/30 via-[#9b5de5]/20 to-[#00bbf9]/30 flex items-center justify-center relative overflow-hidden">
+              <div
+                class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.05%22%3E%3Cpath%20d%3D%22M36%2034v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6%2034v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6%204V0H4v4H0v2h4v4h2V6h4V4H6z%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E')] opacity-50">
+              </div>
+              <svg class="w-20 h-20 text-white/80 group-hover:scale-110 transition-transform" viewbox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="3" y="3" width="18" height="18" rx="2" />
+                <path d="M9 6h6M9 11h6M9 16h2M15 16h2M6 8h1M6 13h1M6 18h1" />
+              </svg>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="w-2 h-2 rounded-full bg-[#f15bb5] animate-pulse"></span> <span
+                  class="text-xs text-gray-500 mono">Desktop App</span>
+              </div>
+              <h3 class="text-xl font-bold mb-3">Minimarket Manage App</h3>
+              <p class="text-gray-400 text-sm mb-4 leading-relaxed">Desktop application for managing minimarket
+                operations including inventory, sales tracking, and customer management with user-friendly GUI
+                interface.</p>
+              <div class="flex flex-wrap gap-2 mb-6">
+                <span class="px-2 py-1 bg-white/5 rounded text-xs mono text-gray-400">Java Swing</span> <span
+                  class="px-2 py-1 bg-white/5 rounded text-xs mono text-gray-400">MySQL</span>
+              </div><a href="https://github.com/ducnhan123-co/DO_AN_JAVA.git" target="_blank" rel="noopener noreferrer"
+                class="flex items-center gap-2 text-[#f15bb5] hover:gap-3 transition-all"> <span
+                  class="text-sm font-medium">View Project</span> <i data-lucide="arrow-right" class="w-4 h-4"></i> </a>
+            </div>
+          </div><!-- Project 5: Shooter Game -->
+          <div class="glass rounded-3xl overflow-hidden card-hover group">
+            <div
+              class="h-48 bg-gradient-to-br from-[#00f5d4]/30 via-[#9b5de5]/20 to-[#f15bb5]/30 flex items-center justify-center relative overflow-hidden">
+              <div
+                class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.05%22%3E%3Cpath%20d%3D%22M36%2034v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6%2034v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6%204V0H4v4H0v2h4v4h2V6h4V4H6z%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E')] opacity-50">
+              </div>
+              <svg class="w-20 h-20 text-white/80 group-hover:scale-110 transition-transform" viewbox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="1.5">
+                <circle cx="12" cy="12" r="9" />
+                <path d="M12 7v10M7 12h10" stroke-width="2" />
+                <path d="M15 15l3 3M9 9l-3-3" stroke-width="1.5" />
+              </svg>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="w-2 h-2 rounded-full bg-[#00f5d4] animate-pulse"></span> <span
+                  class="text-xs text-gray-500 mono">Game Dev</span>
+              </div>
+              <h3 class="text-xl font-bold mb-3">Shooter Game</h3>
+              <p class="text-gray-400 text-sm mb-4 leading-relaxed">Action-packed shooter game featuring smooth gameplay
+                mechanics, enemy AI, scoring system, and progressive difficulty levels for engaging player experience.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-6">
+                <span class="px-2 py-1 bg-white/5 rounded text-xs mono text-gray-400">Python</span> <span
+                  class="px-2 py-1 bg-white/5 rounded text-xs mono text-gray-400">Pygame</span>
+              </div><a href="https://github.com/ducnhan123-co/DO_AN_PYTHON.git" target="_blank"
+                rel="noopener noreferrer" class="flex items-center gap-2 text-[#00f5d4] hover:gap-3 transition-all">
+                <span class="text-sm font-medium">View Project</span> <i data-lucide="arrow-right" class="w-4 h-4"></i>
+              </a>
+            </div>
+          </div><!-- Project 6: Social Media -->
+          <div class="glass rounded-3xl overflow-hidden card-hover group">
+            <div
+              class="h-48 bg-gradient-to-br from-[#9b5de5]/30 via-[#00f5d4]/20 to-[#00bbf9]/30 flex items-center justify-center relative overflow-hidden">
+              <div
+                class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.05%22%3E%3Cpath%20d%3D%22M36%2034v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6%2034v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6%204V0H4v4H0v2h4v4h2V6h4V4H6z%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E')] opacity-50">
+              </div>
+              <svg class="w-20 h-20 text-white/80 group-hover:scale-110 transition-transform" viewbox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M17 2H7a5 5 0 0 0-5 5v10a5 5 0 0 0 5 5h10a5 5 0 0 0 5-5V7a5 5 0 0 0-5-5Z" />
+                <circle cx="12" cy="12" r="4" />
+                <circle cx="18" cy="6" r="1.5" fill="currentColor" />
+              </svg>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="w-2 h-2 rounded-full bg-[#9b5de5] animate-pulse"></span> <span
+                  class="text-xs text-gray-500 mono">In Progress</span>
+              </div>
+              <h3 class="text-xl font-bold mb-3">Social Media Platform</h3>
+              <p class="text-gray-400 text-sm mb-4 leading-relaxed">Modern social networking application with real-time
+                features including user profiles, posts, comments, likes, messaging, and friend system with push
+                notifications.</p>
+              <div class="flex flex-wrap gap-2 mb-6">
+                <span class="px-2 py-1 bg-white/5 rounded text-xs mono text-gray-400">.NET Core</span> <span
+                  class="px-2 py-1 bg-white/5 rounded text-xs mono text-gray-400">SignalR</span> <span
+                  class="px-2 py-1 bg-white/5 rounded text-xs mono text-gray-400">SQL Server</span> <span
+                  class="px-2 py-1 bg-white/5 rounded text-xs mono text-gray-400">Redis</span>
+              </div>
+              <div class="flex items-center gap-2 text-gray-500">
+                <i data-lucide="clock" class="w-4 h-4"></i> <span class="text-sm">Coming Soon</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section><!-- Contact Section -->
+    <section id="contact" class="py-32 px-6 relative">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-16">
+          <p class="mono text-[#00f5d4] text-sm mb-4 tracking-widest">GET IN TOUCH</p>
+          <h2 class="text-4xl md:text-5xl font-bold mb-6">Let's Work Together</h2>
+          <p class="text-gray-400 max-w-2xl mx-auto">I'm always open to discussing new projects, creative ideas, or
+            opportunities to be part of your vision.</p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-6">
+          <a href="mailto:trandinhkhanhdu2005@gmail.com" class="glass rounded-2xl p-6 text-center card-hover group">
+            <div
+              class="w-14 h-14 rounded-full bg-gradient-to-br from-[#00f5d4]/20 to-[#00bbf9]/20 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+              <i data-lucide="mail" class="w-6 h-6 text-[#00f5d4]"></i>
+            </div>
+            <h3 class="font-semibold mb-2">Email</h3>
+            <p id="contact-email" class="text-gray-400 text-sm break-all">trandinhkhanhdu2005@gmail.com</p>
+          </a> <a href="tel:0916114536" class="glass rounded-2xl p-6 text-center card-hover group">
+            <div
+              class="w-14 h-14 rounded-full bg-gradient-to-br from-[#9b5de5]/20 to-[#f15bb5]/20 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+              <i data-lucide="phone" class="w-6 h-6 text-[#9b5de5]"></i>
+            </div>
+            <h3 class="font-semibold mb-2">Phone</h3>
+            <p id="contact-phone" class="text-gray-400 text-sm">0916114536</p>
+          </a> <a href="https://github.com/dww155" target="_blank" rel="noopener noreferrer"
+            class="glass rounded-2xl p-6 text-center card-hover group">
+            <div
+              class="w-14 h-14 rounded-full bg-gradient-to-br from-[#00bbf9]/20 to-[#00f5d4]/20 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+              <i data-lucide="github" class="w-6 h-6 text-[#00bbf9]"></i>
+            </div>
+            <h3 class="font-semibold mb-2">GitHub</h3>
+            <p class="text-gray-400 text-sm">https://github.com/dww155</p>
+          </a>
+        </div>
+      </div>
+    </section><!-- Footer -->
+    <footer class="py-8 px-6 border-t border-white/5">
+      <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+        <div class="mono text-sm text-gray-500">
+          <span class="text-[#00f5d4]">&lt;</span> Built with passion <span class="text-[#00f5d4]">/&gt;</span>
+        </div>
+        <p class="text-gray-500 text-sm">© 2026 Trần Đình Khánh Dư. All rights reserved.</p>
+      </div>
+    </footer>
+  </div>
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Default configuration
+    const defaultConfig = {
+      full_name: 'Trần Đình Khánh Dư',
+      job_title: 'Web Developer',
+      bio: 'Passionate full-stack developer with expertise in building modern web applications. I transform ideas into elegant, scalable solutions using cutting-edge technologies.',
+      email: 'trandinhkhanhdu2005@gmail.com',
+      phone: '0916114536',
+      github: 'https://github.com/dww155',
+      primary_color: '#00f5d4',
+      secondary_color: '#9b5de5',
+      accent_color: '#00bbf9',
+      text_color: '#ffffff',
+      background_color: '#0a0a0f',
+      font_family: 'Space Grotesk',
+      font_size: 16
+    };
+
+    // Element SDK initialization
+    if (window.elementSdk) {
+      window.elementSdk.init({
+        defaultConfig,
+        onConfigChange: async (config) => {
+          // Update hero section
+          document.getElementById('hero-name').textContent = config.full_name || defaultConfig.full_name;
+          document.getElementById('hero-title').textContent = config.job_title || defaultConfig.job_title;
+          document.getElementById('hero-bio').textContent = config.bio || defaultConfig.bio;
+
+          // Update contact section
+          document.getElementById('contact-email').textContent = config.email || defaultConfig.email;
+          document.getElementById('contact-phone').textContent = config.phone || defaultConfig.phone;
+
+          // Update email link
+          const emailLink = document.querySelector('a[href^="mailto:"]');
+          if (emailLink) {
+            emailLink.href = `mailto:${config.email || defaultConfig.email}`;
+          }
+
+          // Update phone link
+          const phoneLink = document.querySelector('a[href^="tel:"]');
+          if (phoneLink) {
+            phoneLink.href = `tel:${config.phone || defaultConfig.phone}`;
+          }
+
+          // Apply colors
+          const primaryColor = config.primary_color || defaultConfig.primary_color;
+          const secondaryColor = config.secondary_color || defaultConfig.secondary_color;
+          const accentColor = config.accent_color || defaultConfig.accent_color;
+          const textColor = config.text_color || defaultConfig.text_color;
+          const bgColor = config.background_color || defaultConfig.background_color;
+
+          document.body.style.backgroundColor = bgColor;
+          document.body.style.color = textColor;
+
+          // Update gradient text
+          const gradientText = document.querySelector('.gradient-text');
+          if (gradientText) {
+            gradientText.style.background = `linear-gradient(135deg, ${primaryColor} 0%, ${accentColor} 50%, ${secondaryColor} 100%)`;
+            gradientText.style.webkitBackgroundClip = 'text';
+            gradientText.style.backgroundClip = 'text';
+          }
+
+          // Apply font
+          const fontFamily = config.font_family || defaultConfig.font_family;
+          const fontSize = config.font_size || defaultConfig.font_size;
+          document.body.style.fontFamily = `${fontFamily}, sans-serif`;
+          document.body.style.fontSize = `${fontSize}px`;
+        },
+        mapToCapabilities: (config) => ({
+          recolorables: [
+            {
+              get: () => config.background_color || defaultConfig.background_color,
+              set: (value) => { config.background_color = value; window.elementSdk.setConfig({ background_color: value }); }
+            },
+            {
+              get: () => config.text_color || defaultConfig.text_color,
+              set: (value) => { config.text_color = value; window.elementSdk.setConfig({ text_color: value }); }
+            },
+            {
+              get: () => config.primary_color || defaultConfig.primary_color,
+              set: (value) => { config.primary_color = value; window.elementSdk.setConfig({ primary_color: value }); }
+            },
+            {
+              get: () => config.secondary_color || defaultConfig.secondary_color,
+              set: (value) => { config.secondary_color = value; window.elementSdk.setConfig({ secondary_color: value }); }
+            },
+            {
+              get: () => config.accent_color || defaultConfig.accent_color,
+              set: (value) => { config.accent_color = value; window.elementSdk.setConfig({ accent_color: value }); }
+            }
+          ],
+          borderables: [],
+          fontEditable: {
+            get: () => config.font_family || defaultConfig.font_family,
+            set: (value) => { config.font_family = value; window.elementSdk.setConfig({ font_family: value }); }
+          },
+          fontSizeable: {
+            get: () => config.font_size || defaultConfig.font_size,
+            set: (value) => { config.font_size = value; window.elementSdk.setConfig({ font_size: value }); }
+          }
+        }),
+        mapToEditPanelValues: (config) => new Map([
+          ['full_name', config.full_name || defaultConfig.full_name],
+          ['job_title', config.job_title || defaultConfig.job_title],
+          ['bio', config.bio || defaultConfig.bio],
+          ['email', config.email || defaultConfig.email],
+          ['phone', config.phone || defaultConfig.phone],
+          ['github', config.github || defaultConfig.github]
+        ])
+      });
+    }
+
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Intersection Observer for scroll animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.card-hover').forEach(card => {
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(20px)';
+      card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      observer.observe(card);
+    });
+  </script>
+  <script>(function () { function c() { var b = a.contentDocument || a.contentWindow.document; if (b) { var d = b.createElement('script'); d.innerHTML = "window.__CF$cv$params={r:'9d9a27fc232ded99',t:'MTc3MzA2MDExMS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);"; b.getElementsByTagName('head')[0].appendChild(d) } } if (document.body) { var a = document.createElement('iframe'); a.height = 1; a.width = 1; a.style.position = 'absolute'; a.style.top = 0; a.style.left = 0; a.style.border = 'none'; a.style.visibility = 'hidden'; document.body.appendChild(a); if ('loading' !== document.readyState) c(); else if (window.addEventListener) document.addEventListener('DOMContentLoaded', c); else { var e = document.onreadystatechange || function () { }; document.onreadystatechange = function (b) { e(b); 'loading' !== document.readyState && (document.onreadystatechange = e, c()) } } } })();</script>
+</body>
+
+</html>
